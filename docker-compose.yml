@@ -1,0 +1,6 @@
+version: '3'
+services:
+  vlc:
+    build: ./docker/vlc/
+    volumes:
+      - ./audio:/audio
