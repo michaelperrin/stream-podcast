@@ -1,0 +1,5 @@
+version: '3'
+services:
+  php:
+    environment:
+      AUDIO_BASE_URI: http://streampodcast.michaelperrin.fr/audio
