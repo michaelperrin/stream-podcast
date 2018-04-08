@@ -8,6 +8,14 @@ Example (save stream of KCRW for 10 seconds, and save it to KCRW.mp3 file in the
 
     docker-compose run --rm vlc "http://media.kcrw.com/pls/kcrwsimulcast.pls" --sout file/mp3:/audio/KCRW.mp3 --run-time=10 --stop-time=10 vlc://quit
 
+## Usage
+
+Run:
+
+    make start_dev
+
+Visit http://localhost:8083/npr-morning-edition.xml
+
 
 ## Resources
 

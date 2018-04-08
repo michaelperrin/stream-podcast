@@ -71,6 +71,9 @@
     "symfony/lts": {
         "version": "4-dev"
     },
+    "symfony/options-resolver": {
+        "version": "v4.0.8"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.7.0"
     },
