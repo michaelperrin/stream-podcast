@@ -24,10 +24,13 @@ services:
   php:
     image: php:7.2-fpm-alpine
     volumes:
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini:ro
       - ./app:/var/www/app
       - ./audio:/audio:ro
     working_dir: /var/www/app
 
   composer:
     image: composer:1.6
-
+    volumes:
+      - ./app:/var/www/app
+    working_dir: /var/www/app
