@@ -2,7 +2,7 @@ help:           ## Show this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 install:        ## Setup the project
-install: build start install_php_deps
+install: build start_prod install_php_deps
 
 build:          ## Build Docker containers
 	docker-compose build
