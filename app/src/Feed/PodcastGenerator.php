@@ -54,10 +54,12 @@ class PodcastGenerator
         foreach ($finder->in('/audio') as $file) {
             $fileInfo = $file->getFileInfo();
             $dateCreated = \DateTime::createFromFormat('U', $file->getCTime());
+            $uri = sprintf('%s/%s', $this->audioBaseUri, $file->getBasename());
 
             $entry = $feed->createEntry();
             $entry->setTitle(sprintf('Episode %s', $dateCreated->format('Y-m-d')));
-            $entry->setLink(sprintf('%s/%s', $this->audioBaseUri, $file->getBasename()));
+            $entry->setLink($uri);
+            $entry->setEnclosure(['uri' => $uri, 'type' => 'audio/mpeg', 'length' => $fileInfo->getSize()]);
             $entry->setDateCreated($dateCreated);
             $entry->setDateModified(\DateTime::createFromFormat('U', $file->getMTime()));
             $entry->setContent(sprintf('Episode %s', $dateCreated->format('Y-m-d')));
