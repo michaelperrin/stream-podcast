@@ -15,7 +15,7 @@ class PodcastGenerator
         $this->audioBaseUri = $audioBaseUri;
     }
 
-    public function getFeed(array $feedProperties): string
+    public function getFeed(array $feedProperties, string $filenameFilter): string
     {
         $feedProperties = $this->resolveProperties($feedProperties);
 
@@ -26,7 +26,7 @@ class PodcastGenerator
         $feed->setFeedLink($feedProperties['feedLink'], $feedProperties['feedType']);
         $feed->setDescription($feedProperties['description']);
 
-        $this->addItems($feed);
+        $this->addItems($feed, $filenameFilter);
 
         return $feed->export('rss');
     }
@@ -42,10 +42,10 @@ class PodcastGenerator
         return $resolver->resolve($properties);
     }
 
-    protected function addItems(Feed $feed): void
+    protected function addItems(Feed $feed, string $filenameFilter): void
     {
         $finder = new Finder();
-        $finder->name('*.mp3')->sortByName();
+        $finder->name('KCRW-*.mp3')->sortByName();
 
         $items = [];
 
@@ -53,13 +53,14 @@ class PodcastGenerator
 
         foreach ($finder->in('/audio') as $file) {
             $fileInfo = $file->getFileInfo();
+            $dateCreated = \DateTime::createFromFormat('U', $file->getCTime());
 
             $entry = $feed->createEntry();
-            $entry->setTitle('Title');
+            $entry->setTitle(sprintf('Episode %s', $dateCreated->format('Y-m-d')));
             $entry->setLink(sprintf('%s%s.html', $this->audioBaseUri, $file->getBasename()));
-            $entry->setDateCreated(\DateTime::createFromFormat('U', $file->getCTime()));
+            $entry->setDateCreated($dateCreated);
             $entry->setDateModified(\DateTime::createFromFormat('U', $file->getMTime()));
-            $entry->setContent('Test');
+            $entry->setContent(sprintf('Episode %s', $dateCreated->format('Y-m-d')));
 
             $feed->addEntry($entry);
 

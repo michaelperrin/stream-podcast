@@ -16,7 +16,8 @@ class FeedController
                 'link'        => 'https://www.npr.org',
                 'feedLink'    => $request->getUri(),
                 'description' => 'NPR Morning edition',
-            ]
+            ],
+            'KCRW-*.mp3'
         );
 
         $response = new Response($feed);
