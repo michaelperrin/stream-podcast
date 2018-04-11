@@ -57,7 +57,7 @@ class PodcastGenerator
 
             $entry = $feed->createEntry();
             $entry->setTitle(sprintf('Episode %s', $dateCreated->format('Y-m-d')));
-            $entry->setLink(sprintf('%s%s.html', $this->audioBaseUri, $file->getBasename()));
+            $entry->setLink(sprintf('%s/%s', $this->audioBaseUri, $file->getBasename()));
             $entry->setDateCreated($dateCreated);
             $entry->setDateModified(\DateTime::createFromFormat('U', $file->getMTime()));
             $entry->setContent(sprintf('Episode %s', $dateCreated->format('Y-m-d')));
