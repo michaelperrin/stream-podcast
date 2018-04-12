@@ -1,2 +1,2 @@
-# Save KCRW stream every weekday, at 10:00 UTC
-0 10 * * 1,2,3,4,5 appuser cvlc "http://media.kcrw.com/pls/kcrwsimulcast.pls" --sout "file/mp3:/audio/KCRW-$(date '+\%Y-\%m-\%d').mp3" --run-time=600 --stop-time=600 vlc://quit
+# Save KCRW stream every weekday, at 10:00 UTC, for one hour
+0 10 * * 1,2,3,4,5 appuser cvlc "http://media.kcrw.com/pls/kcrwsimulcast.pls" --sout "file/mp3:/audio/KCRW-$(date '+\%Y-\%m-\%d').mp3" --run-time=3600 --stop-time=3600 vlc://quit

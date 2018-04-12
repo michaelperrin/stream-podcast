@@ -15,4 +15,7 @@ RUN groupadd -g 999 appuser && \
 ADD crontab /etc/cron.d/stream-saver
 RUN chmod 0644 /etc/cron.d/stream-saver
 
+RUN mkdir /audio
+RUN chown appuser:appuser /audio
+
 CMD ["cron", "-f"]
