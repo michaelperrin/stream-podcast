@@ -74,6 +74,9 @@
     "symfony/options-resolver": {
         "version": "v4.0.8"
     },
+    "symfony/polyfill-ctype": {
+        "version": "v1.9.0"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.7.0"
     },
