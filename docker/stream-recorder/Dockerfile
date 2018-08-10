@@ -1,9 +1,9 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 LABEL maintainer="Michaël Perrin"
 
 # Install VLC
 RUN apt-get update && apt-get install -y \
-    vlc-nox
+    vlc-bin
 
 RUN apt-get update && apt-get install -y \
     cron
