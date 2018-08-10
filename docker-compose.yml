@@ -5,8 +5,8 @@ services:
   #   volumes:
   #     - ./audio:/audio
 
-  stream-saver:
-    build: ./docker/stream-saver/
+  stream_recorder:
+    build: ./docker/stream-recorder/
     volumes:
       - ./audio:/audio
 
