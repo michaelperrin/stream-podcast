@@ -1,5 +1,7 @@
 # stream-podcast
 
+This is the repository related to this article: http://blog.michaelperrin.fr/2018/08/14/create-a-podcast-with-symfony-and-vlc/
+
 ## Use of VLC
 
 A `Dockerfile` was made to run VLC in command line (automatically avoids to be run as root, a thing that VLC doesn't like, at all).
