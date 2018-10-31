@@ -19,18 +19,14 @@ services:
       - ./app:/var/www/app
       - ./audio:/var/www/app/public/audio:ro
     ports:
-      - 8083:80
+      - 80:80
 
   php:
-    image: php:7.2-fpm-alpine
+    build: ./docker/php
     volumes:
-      - ./docker/php/php.ini:/usr/local/etc/php/php.ini:ro
       - ./app:/var/www/app
       - ./audio:/audio:ro
     working_dir: /var/www/app
-
-  composer:
-    image: composer:1.6
-    volumes:
-      - ./app:/var/www/app
-    working_dir: /var/www/app
+    environment:
+      AUDIO_BASE_URI: http://localhost/audio
+      PODCASTS_FILE: /etc/stream-recorder/podcasts.json

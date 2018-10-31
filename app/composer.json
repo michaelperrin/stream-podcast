@@ -11,7 +11,7 @@
         "symfony/lts": "^4@dev",
         "symfony/options-resolver": "^4.1",
         "symfony/yaml": "^4.1",
-        "zendframework/zend-feed": "^2.9"
+        "zendframework/zend-feed": "^2.10"
     },
     "require-dev": {
         "symfony/dotenv": "^4.1"
@@ -33,6 +33,7 @@
         }
     },
     "replace": {
+        "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*",

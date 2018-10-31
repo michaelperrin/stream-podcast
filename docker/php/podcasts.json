@@ -1,0 +1,8 @@
+{
+    "npr-morning-edition": {
+        "title": "NPR Morning edition",
+        "link": "https://www.npr.org",
+        "description": "NPR Morning edition",
+        "files": "KCRW-*.mp3"
+    }
+}
