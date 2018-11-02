@@ -1,9 +1,9 @@
 version: '3'
 services:
-  # vlc:
-  #   build: ./docker/vlc/
-  #   volumes:
-  #     - ./audio:/audio
+  vlc:
+    build: ./docker/vlc/
+    volumes:
+      - ./audio:/audio
 
   stream_recorder:
     build: ./docker/stream-recorder/
