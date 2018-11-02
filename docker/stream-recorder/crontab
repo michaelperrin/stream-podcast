@@ -1,1 +1,2 @@
-* * * * * appuser cvlc "http://media.kcrw.com/pls/kcrwsimulcast.pls" --sout "file/mp3:/audio/KCRW-$(date '+\%Y-\%m-\%d-\%H-\%M').mp3" --run-time=10 --stop-time=10 vlc://quit
+# Save Houston Public Media stream every weekday, at 12:00 UTC, for one hour
+0 12 * * 1,2,3,4,5 appuser cvlc "https://stream.houstonpublicmedia.org/news-mp3" --sout "file/mp3:/audio/HPM-Morning-Edition-$(date '+\%Y-\%m-\%d').mp3" --run-time=3600 --stop-time=3600 vlc://quit

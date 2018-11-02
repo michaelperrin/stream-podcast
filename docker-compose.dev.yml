@@ -1,5 +1,10 @@
 version: '3'
 services:
+  vlc:
+    build: ./docker/vlc/
+    volumes:
+      - ./audio:/audio
+
   php:
     environment:
       AUDIO_BASE_URI: http://localhost:8083/audio

@@ -13,10 +13,10 @@ RUN apt-get update && apt-get install -y \
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
 
-ADD crontab /etc/cron.d/stream-saver
-RUN chmod 0644 /etc/cron.d/stream-saver
-
 # Fix permissions
 RUN usermod -u 1000 appuser
+
+ADD crontab /etc/cron.d/stream-recorder
+RUN chmod 0644 /etc/cron.d/stream-recorder
 
 CMD ["cron", "-f"]

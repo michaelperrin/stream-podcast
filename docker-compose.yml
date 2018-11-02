@@ -1,10 +1,5 @@
 version: '3'
 services:
-  vlc:
-    build: ./docker/vlc/
-    volumes:
-      - ./audio:/audio
-
   stream_recorder:
     build: ./docker/stream-recorder/
     volumes:
@@ -19,7 +14,7 @@ services:
       - ./app:/var/www/app
       - ./audio:/var/www/app/public/audio:ro
     ports:
-      - 80:80
+      - 8083:80
 
   php:
     build: ./docker/php

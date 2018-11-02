@@ -1,8 +1,8 @@
 {
     "npr-morning-edition": {
-        "title": "NPR Morning edition",
+        "title": "NPR Morning edition (Houston Public Media)",
         "link": "https://www.npr.org",
-        "description": "NPR Morning edition",
-        "files": "KCRW-*.mp3"
+        "description": "NPR Morning edition from Houston Public Media",
+        "files": "HPM-Morning-Edition-*.mp3"
     }
 }

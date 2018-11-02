@@ -1,5 +1,5 @@
 COMPOSE=docker-compose
-COMPOSER=$(COMPOSE) run --rm composer
+COMPOSER=$(COMPOSE) exec php composer
 
 help:           ## Show this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
@@ -21,3 +21,6 @@ start_dev:
 
 start_prod:
 	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+stop:
+	docker-compose stop
